@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vessel Vision</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:#000;
+      color:#fff;
+      overflow-x:hidden;
+    }
+
+    :root{
+      --pink:#FF08E2;
+      --white:#fff;
+      --gray:#B5B5B5;
+      --card:#0B0B0B;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      width:100%;
+      height:90px;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:0 60px;
+      position:fixed;
+      top:0;
+      z-index:1000;
+      background:rgba(0,0,0,0.92);
+      backdrop-filter:blur(10px);
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .logo-icon{
+      width:28px;
+      height:28px;
+      border:2px solid var(--pink);
+      transform:rotate(45deg);
+      box-shadow:0 0 20px var(--pink);
+    }
+
+    .logo h1{
+      font-size:28px;
+      font-weight:800;
+      letter-spacing:1px;
+    }
+
+    .logo span{
+      color:var(--pink);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:45px;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:#fff;
+      font-size:16px;
+      transition:0.3s;
+      position:relative;
+    }
+
+    .nav-links a:hover{
+      color:var(--pink);
+    }
+
+    .nav-links a::after{
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:-8px;
+      width:0%;
+      height:2px;
+      background:var(--pink);
+      transition:0.3s;
+    }
+
+    .nav-links a:hover::after{
+      width:100%;
+    }
+
+    .nav-btns{
+      display:flex;
+      gap:15px;
+    }
+
+    .login-btn{
+      padding:12px 24px;
+      border:1px solid rgba(255,255,255,0.15);
+      background:transparent;
+      color:#fff;
+      border-radius:12px;
+      cursor:pointer;
+    }
+
+    .demo-btn{
+      padding:12px 24px;
+      border:none;
+      background:var(--pink);
+      color:#fff;
+      border-radius:12px;
+      cursor:pointer;
+      box-shadow:0 0 25px rgba(255,8,226,0.6);
+      font-weight:600;
+    }
+
+    /* HERO */
+
+    .hero{
+      .hero-content{
+  width:100%;
+  max-width:1200px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:80px;
+
+  position:relative;
+  z-index:2;
+}
+
+.hero-left{
+  flex:1;
+  text-align:left;
+}
+
+.hero-right{
+  flex:0 0 380px;
+}
+
+.hero-right{
+    flex:0 0 450px;
+}
+
+.hero-right img{
+    width:100%;
+    height:auto;
+    display:block;
+
+    border-radius:30px;
+
+    border:1px solid rgba(255,255,255,0.08);
+    box-shadow:0 0 40px rgba(255,8,226,0.15);
+}
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+      padding:120px 20px 80px;
+    }
+
+    .glow{
+      position:absolute;
+      width:650px;
+      height:650px;
+      background:radial-gradient(circle,var(--pink),transparent 70%);
+      filter:blur(120px);
+      opacity:0.45;
+      z-index:0;
+    }
+
+    .badge{
+      padding:12px 22px;
+      border:1px solid var(--pink);
+      border-radius:999px;
+      background:rgba(255,8,226,0.12);
+      color:#fff;
+      margin-bottom:35px;
+      position:relative;
+      z-index:2;
+    }
+
+    .hero h2{
+      font-size:82px;
+      line-height:1.05;
+      font-weight:900;
+      max-width:1000px;
+      position:relative;
+      z-index:2;
+    }
+
+    .hero h2 span{
+      color:var(--pink);
+    }
+
+    .hero p{
+      color:var(--gray);
+      font-size:22px;
+      max-width:800px;
+      margin-top:30px;
+      line-height:1.7;
+      position:relative;
+      z-index:2;
+    }
+
+    .hero-buttons{
+    .hero-image{
+  width:100%;
+  max-width:1050px;
+  margin-top:70px;
+  position:relative;
+  z-index:2;
+}
+
+.hero-image img{
+  width:100%;
+  display:block;
+  border-radius:30px;
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 0 40px rgba(255,8,226,0.15);
+}
+      margin-top:45px;
+      display:flex;
+      gap:20px;
+      position:relative;
+      z-index:2;
+    }
+
+    .pink-btn{
+      padding:18px 34px;
+      border:none;
+      border-radius:14px;
+      background:var(--pink);
+      color:#fff;
+      font-size:17px;
+      cursor:pointer;
+      box-shadow:0 0 30px rgba(255,8,226,0.6);
+      font-weight:600;
+    }
+
+    .dark-btn{
+      padding:18px 34px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.15);
+      background:rgba(255,255,255,0.03);
+      color:#fff;
+      cursor:pointer;
+      font-size:17px;
+    }
+
+    /* ABOUT */
+
+    .about{
+      padding:120px 8%;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:80px;
+      align-items:center;
+    }
+
+    .about-text h5{
+      color:var(--pink);
+      margin-bottom:18px;
+      font-size:16px;
+      letter-spacing:2px;
+    }
+
+    .about-text h3{
+      font-size:56px;
+      margin-bottom:30px;
+    }
+
+    .about-text p{
+      color:var(--gray);
+      line-height:2;
+      font-size:18px;
+    }
+
+    .about-card{
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:30px;
+      padding:40px;
+      backdrop-filter:blur(12px);
+      box-shadow:0 0 40px rgba(255,8,226,0.15);
+      position:relative;
+      overflow:hidden;
+    }
+
+    /* SERVICES */
+
+    .services{
+      padding:120px 8%;
+      text-align:center;
+    }
+
+    .services h5{
+      color:var(--pink);
+      letter-spacing:2px;
+      margin-bottom:15px;
+    }
+
+    .services h2{
+      font-size:58px;
+      margin-bottom:20px;
+    }
+
+    .services p{
+      color:var(--gray);
+      margin-bottom:70px;
+      font-size:18px;
+    }
+
+    .service-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:35px;
+    }
+
+    .service-card{
+      background:#0B0B0B;
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:30px;
+      padding:50px 35px;
+      transition:0.4s;
+    }
+
+    .service-card:hover{
+      transform:translateY(-10px);
+      border-color:var(--pink);
+      box-shadow:0 0 35px rgba(255,8,226,0.2);
+    }
+
+    .service-icon{
+      font-size:50px;
+      color:var(--pink);
+      margin-bottom:25px;
+    }
+
+    .service-card h3{
+      font-size:32px;
+      margin-bottom:18px;
+    }
+
+    .service-card p{
+      line-height:1.8;
+      color:var(--gray);
+    }
+
+    /* CTA */
+
+    .cta{
+      margin:120px 8%;
+      padding:70px;
+      border-radius:35px;
+      background:linear-gradient(90deg,#140012,#33002F);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      box-shadow:0 0 50px rgba(255,8,226,0.2);
+    }
+
+    .cta h2{
+      font-size:58px;
+      line-height:1.2;
+      max-width:700px;
+    }
+
+    .cta span{
+      color:var(--pink);
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:#050505;
+      border-top:1px solid rgba(255,255,255,0.08);
+      padding:100px 8% 40px;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr 1fr;
+      gap:50px;
+    }
+
+    footer h3{
+      margin-bottom:25px;
+      font-size:24px;
+    }
+
+    footer p,
+    footer li{
+      color:var(--gray);
+      line-height:2;
+      list-style:none;
+    }
+
+    .copyright{
+      text-align:center;
+      margin-top:70px;
+      color:#777;
+      border-top:1px solid rgba(255,255,255,0.08);
+      padding-top:30px;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:1100px){
+
+      .hero h2{
+        font-size:62px;
+      }
+
+      .about{
+        grid-template-columns:1fr;
+      }
+
+      .service-grid{
+        grid-template-columns:1fr;
+      }
+
+      .cta{
+        flex-direction:column;
+        gap:40px;
+        text-align:center;
+      }
+
+      .footer-grid{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
+    @media(max-width:768px){
+
+      nav{
+        padding:0 20px;
+      }
+
+      .nav-links{
+        display:none;
+      }
+
+      .hero h2{
+        font-size:46px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      .hero-buttons{
+        flex-direction:column;
+      }
+
+      .about-text h3{
+        font-size:40px;
+      }
+
+      .services h2{
+        font-size:42px;
+      }
+
+      .cta h2{
+        font-size:40px;
+      }
+
+      .footer-grid{
+        grid-template-columns:1fr;
+      }
+
+      .floating-card{
+        position:relative;
+        left:0;
+        bottom:0;
+        margin-top:30px;
+        width:100%;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="logo">
+      <div class="logo-icon"></div>
+      <h1>VESSEL <span>VISION</span></h1>
+    </div>
+
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <div class="nav-btns">
+      <button class="login-btn">Login</button>
+      <button class="demo-btn">Book a Call
+      </button>
+    </div>
+
+  </nav>
+
+  <!-- HERO -->
+
+ <section class="hero">
+
+  <div class="glow"></div>
+
+  <div class="hero-content">
+
+    <div class="hero-left">
+
+      <h2>
+        Reimagining Healthcare Through
+        <span>Artificial Intelligence.</span>
+      </h2>
+
+      <p>
+        AI-assisted healthcare solutions designed for smarter medical screening.
+        Faster diagnostics, intelligent analysis, and a healthier future.
+      </p>
+
+      <div class="hero-buttons">
+        <button class="pink-btn">Get Started ↗️</button>
+        <button class="dark-btn">Explore Products</button>
+      </div>
+
+    </div>
+
+    <div class="hero-right">
+
+      <img
+        src="data:image/jpeg;base64,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"
+        alt="Healthcare AI">
+
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- ABOUT -->
+
+  <section class="about">
+
+    <div class="about-text">
+
+      <h5>ABOUT US</h5>
+
+      <h3>About Vessel Vision</h3>
+
+      <p>
+        Vessel Vision is an AI healthcare platform focused on intelligent
+        medical screening and diagnostics. We combine artificial intelligence
+        with healthcare innovation to create smarter and faster healthcare
+        technologies for the future.
+      </p>
+
+    </div>
+
+    <div class="about-card">
+
+        <div class="service-icon">🧠</div>
+
+        <h4>AI Diagnostics</h4>
+
+        <p>
+          Smart AI-powered medical analysis tools.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SERVICES -->
+
+  <section class="services">
+
+    <h5>OUR SERVICES</h5>
+
+    <h2>Our Services</h2>
+
+    <p>
+      AI healthcare tools designed for smarter diagnostics and medical workflows.
+    </p>
+
+    <div class="service-grid">
+
+      <div class="service-card">
+
+        <div class="service-icon">🧠</div>
+
+        <h3>AI Diagnostics</h3>
+
+        <p>
+          Advanced AI algorithms for accurate and early disease detection.
+        </p>
+
+      </div>
+
+      <div class="service-card">
+
+        <div class="service-icon">📷</div>
+
+        <h3>Medical Imaging</h3>
+
+        <p>
+          High-quality medical imaging solutions enhanced with AI.
+        </p>
+
+      </div>
+
+      <div class="service-card">
+
+        <div class="service-icon">📄</div>
+
+        <h3>Smart Reports</h3>
+
+        <p>
+          Automated patient reports and intelligent analytics.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-grid">
+
+      <div>
+
+        <h3>Vessel Vision</h3>
+
+        <p>
+          Building the future of healthcare with AI-powered diagnostic solutions.
+        </p>
+
+      </div>
+
+      <div>
+
+        <h3>Quick Links</h3>
+
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Services</li>
+          <li>Contact</li>
+        </ul>
+
+      </div>
+
+      <div>
+
+        <h3>Services</h3>
+
+        <ul>
+          <li>AI Diagnostics</li>
+          <li>Medical Imaging</li>
+          <li>Smart Reports</li>
+        </ul>
+
+      </div>
+
+      <div>
+
+        <h3>Contact</h3>
+
+        <ul>
+          <li>info@vesselvision.in</li>
+          <li>+91 98765 43210</li>
+          <li>Bangalore, India</li>
+        </ul>
+
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 Vessel Vision. All rights reserved.
+    </div>
+
+  </footer>
+
+</body>
+</html>
+ 
